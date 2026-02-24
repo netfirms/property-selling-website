@@ -231,8 +231,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ----------------------------------------------------------- */
   const langSelect = document.getElementById("lang-select");
   if (langSelect && typeof translations !== "undefined") {
-    // Check local storage for saved language or default to 'en'
-    let currentLang = localStorage.getItem("preferredLang") || "en";
+    // Check local storage for saved language or default to 'th'
+    let currentLang = localStorage.getItem("preferredLang") || "th";
     langSelect.value = currentLang;
 
     function applyTranslations(lang) {
