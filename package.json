@@ -1,0 +1,16 @@
+{
+  "name": "property-selling-website",
+  "version": "1.0.0",
+  "description": "Private property selling website for sabaideal.com",
+  "scripts": {
+    "dev": "npx serve .",
+    "dev:live": "npx live-server ."
+  },
+  "keywords": [
+    "real-estate",
+    "fsbo",
+    "condo"
+  ],
+  "author": "Sabaideal",
+  "license": "ISC"
+}
