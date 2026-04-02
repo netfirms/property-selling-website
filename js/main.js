@@ -65,41 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevBtn = document.getElementById("prev-btn");
   const nextBtn = document.getElementById("next-btn");
 
-  // List of images from the asset folder (we'll pick a few nice ones to showcase)
-  // List of images from the asset folder, categorized
-  const images = [
-    { src: "building/LINE_ALBUM_คอนโด_260224_1.jpg", category: "building" },
-    { src: "bedroom/LINE_ALBUM_คอนโด_260224_2.jpg", category: "bedroom" },
-    { src: "bedroom/LINE_ALBUM_คอนโด_260224_3.jpg", category: "bedroom" },
-    { src: "livingroom/LINE_ALBUM_คอนโด_260224_4.jpg", category: "livingroom" },
-    { src: "livingroom/LINE_ALBUM_คอนโด_260224_5.jpg", category: "livingroom" },
-    { src: "livingroom/LINE_ALBUM_คอนโด_260224_6.jpg", category: "livingroom" },
-    { src: "livingroom/LINE_ALBUM_คอนโด_260224_7.jpg", category: "livingroom" },
-    { src: "bedroom/LINE_ALBUM_คอนโด_260224_8.jpg", category: "bedroom" },
-    { src: "livingroom/LINE_ALBUM_คอนโด_260224_9.jpg", category: "livingroom" },
-    { src: "toilet/LINE_ALBUM_คอนโด_260224_10.jpg", category: "toilet" },
-    { src: "kitchen/LINE_ALBUM_คอนโด_260224_11.jpg", category: "kitchen" },
-    { src: "bedroom/LINE_ALBUM_คอนโด_260224_12.jpg", category: "bedroom" },
-    { src: "livingroom/LINE_ALBUM_คอนโด_260224_13.jpg", category: "livingroom" },
-    { src: "livingroom/LINE_ALBUM_คอนโด_260224_14.jpg", category: "livingroom" },
-    { src: "livingroom/LINE_ALBUM_คอนโด_260224_15.jpg", category: "livingroom" },
-    { src: "kitchen/LINE_ALBUM_คอนโด_260224_16.jpg", category: "kitchen" },
-    { src: "laundry/LINE_ALBUM_คอนโด_260224_17.jpg", category: "laundry" },
-    { src: "facilities/LINE_ALBUM_คอนโด_260224_18.jpg", category: "facilities" },
-    { src: "facilities/LINE_ALBUM_คอนโด_260224_19.jpg", category: "facilities" },
-    { src: "facilities/LINE_ALBUM_คอนโด_260224_20.jpg", category: "facilities" },
-    { src: "facilities/LINE_ALBUM_คอนโด_260224_21.jpg", category: "facilities" },
-    { src: "facilities/LINE_ALBUM_คอนโด_260224_22.jpg", category: "facilities" },
-    { src: "facilities/LINE_ALBUM_คอนโด_260224_23.jpg", category: "facilities" },
-    { src: "facilities/LINE_ALBUM_คอนโด_260224_24.jpg", category: "facilities" },
-    { src: "facilities/LINE_ALBUM_คอนโด_260224_25.jpg", category: "facilities" },
-    { src: "facilities/LINE_ALBUM_คอนโด_260224_26.jpg", category: "facilities" },
-    { src: "facilities/LINE_ALBUM_คอนโด_260224_27.jpg", category: "facilities" },
-    { src: "facilities/LINE_ALBUM_คอนโด_260224_28.jpg", category: "facilities" },
-    { src: "LINE_ALBUM_คอนโด_260224_30.jpg", category: "livingroom" }
-  ];
+  const images = typeof propertyGallery !== 'undefined' ? propertyGallery : [];
 
-  const basePath = "asset/properties/condo/dcondo-ping/";
+  const basePath = typeof propertyBasePath !== 'undefined' ? propertyBasePath : "";
   let currentImageIndex = 0;
   let filteredImages = [...images];
 
@@ -238,19 +206,24 @@ document.addEventListener("DOMContentLoaded", () => {
     function applyTranslations(lang) {
       document.documentElement.lang = lang;
       
+      const currentTranslations = { ...(translations[lang] || {}) };
+      if (typeof propertyContent !== 'undefined' && propertyContent[lang]) {
+        Object.assign(currentTranslations, propertyContent[lang]);
+      }
+      
       // Translate innerHTML (to support strong tags etc)
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
-        if (translations[lang] && translations[lang][key]) {
-          el.innerHTML = translations[lang][key];
+        if (currentTranslations[key]) {
+          el.innerHTML = currentTranslations[key];
         }
       });
       
       // Translate placeholders
       document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
         const key = el.getAttribute("data-i18n-placeholder");
-        if (translations[lang] && translations[lang][key]) {
-          el.placeholder = translations[lang][key];
+        if (currentTranslations[key]) {
+          el.placeholder = currentTranslations[key];
         }
       });
     }

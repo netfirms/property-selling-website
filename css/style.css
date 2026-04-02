@@ -824,6 +824,12 @@ img {
 }
 
 /* Contact Section */
+.contact-card:hover {
+  transform: translateY(-10px) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(197, 160, 89, 0.5) !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
+}
 .form-glass {
   background: var(--bg-secondary);
   padding: 40px;
