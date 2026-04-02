@@ -105,6 +105,15 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.classList.add("active");
 
         const filterValue = btn.getAttribute("data-filter");
+        
+        // Firebase Analytics Event
+        if (window.logFirebaseEvent) {
+          window.logFirebaseEvent("select_content", {
+            content_type: "gallery_filter",
+            item_id: filterValue
+          });
+        }
+
         if (filterValue === "all") {
           filteredImages = [...images];
         } else {
@@ -121,6 +130,15 @@ document.addEventListener("DOMContentLoaded", () => {
     updateLightboxImage();
     lightbox.style.display = "block";
     document.body.style.overflow = "hidden"; // Prevent scrolling behind lightbox
+    
+    // Firebase Analytics Event
+    if (window.logFirebaseEvent && filteredImages[currentImageIndex]) {
+      window.logFirebaseEvent("view_item", {
+        content_type: "gallery_image",
+        item_category: filteredImages[currentImageIndex].category,
+        item_id: filteredImages[currentImageIndex].src
+      });
+    }
   }
 
   function closeLightboxModal() {
@@ -236,6 +254,14 @@ document.addEventListener("DOMContentLoaded", () => {
       currentLang = e.target.value;
       localStorage.setItem("preferredLang", currentLang);
       applyTranslations(currentLang);
+      
+      // Firebase Analytics Event
+      if (window.logFirebaseEvent) {
+        window.logFirebaseEvent("select_content", {
+          content_type: "language_switch",
+          item_id: currentLang
+        });
+      }
     });
   }
 });

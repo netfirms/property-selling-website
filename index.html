@@ -69,6 +69,33 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Firebase Analytics -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+      import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDcJO8caGrJyj0rbDT6psmG2fAx1DV7syQ",
+        authDomain: "auracapitalasset.firebaseapp.com",
+        projectId: "auracapitalasset",
+        storageBucket: "auracapitalasset.firebasestorage.app",
+        messagingSenderId: "238440690319",
+        appId: "1:238440690319:web:1e586e520e0b7acbabf6fa",
+        measurementId: "G-W2HMPYH72S"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      
+      // Expose globally for vanilla JS integration
+      window.logFirebaseEvent = (eventName, eventParams) => {
+        try {
+          logEvent(analytics, eventName, eventParams);
+        } catch (e) {
+          console.error("Firebase Analytics Error:", e);
+        }
+      };
+    </script>
   </head>
   <body>
     <!-- Navigation -->
