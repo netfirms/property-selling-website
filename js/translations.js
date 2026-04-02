@@ -6,7 +6,7 @@ const translations = {
     nav_gallery: "Gallery",
     nav_contact: "Contact Us",
     
-    hero_title: "Welcome to Sabaideal",
+    hero_title: "Welcome to Aura Capital Asset",
     hero_subtitle: "Discover premium properties safely and directly from owners in Chiang Mai.",
     hero_btn_view: "View Featured Listing",
     hero_btn_contact: "Contact Us",
@@ -25,7 +25,7 @@ const translations = {
     stat_loc_desc: "Private Walkway to Central Festival",
     
     price_label: "Selling Price",
-    price_amount: "฿2.4M THB",
+    price_amount: "฿2.3M THB",
     
     value_main_title: "Why Choose dcondo Ping?",
     value_main_subtitle: "Whether you are looking for your perfect home or a high-yield asset, this property delivers.",
@@ -130,7 +130,7 @@ const translations = {
     
     contact_btn_send: "Send Message",
     
-    footer_copy: "&copy; 2024 Sabaideal.com. Premium Private Real Estate Listings."
+    footer_copy: "&copy; 2024 auracapitalasset.com. Premium Private Real Estate Listings."
   },
   th: {
     nav_about: "เกี่ยวกับ",
@@ -139,7 +139,7 @@ const translations = {
     nav_gallery: "แกลเลอรี",
     nav_contact: "ติดต่อเรา",
     
-    hero_title: "ยินดีต้อนรับสู่ Sabaideal",
+    hero_title: "ยินดีต้อนรับสู่ Aura Capital Asset",
     hero_subtitle: "ค้นพบอสังหาริมทรัพย์ระดับพรีเมียมอย่างปลอดภัยและตรงจากเจ้าของในเชียงใหม่",
     hero_btn_view: "ดูทรัพย์สินแนะนำ",
     hero_btn_contact: "ติดต่อเรา",
@@ -158,7 +158,7 @@ const translations = {
     stat_loc_desc: "ทางเดินส่วนตัวไปเซ็นทรัลเฟสติวัล",
     
     price_label: "ราคาขาย",
-    price_amount: "฿2.4 ล้านบาท",
+    price_amount: "฿2.3 ล้านบาท",
     
     value_main_title: "ทำไมต้องเลือก ดีคอนโด ปิง?",
     value_main_subtitle: "ไม่ว่าคุณจะกำลังมองหาบ้านที่สมบูรณ์แบบหรือสินทรัพย์ที่ให้ผลตอบแทนสูง ที่นี่คือคำตอบที่ใช่",
@@ -263,7 +263,7 @@ const translations = {
     
     contact_btn_send: "ส่งข้อความ",
     
-    footer_copy: "&copy; 2024 Sabaideal.com อสังหาริมทรัพย์ระดับพรีเมียมส่วนตัว"
+    footer_copy: "&copy; 2024 auracapitalasset.com อสังหาริมทรัพย์ระดับพรีเมียมส่วนตัว"
   },
   zh: {
     nav_about: "关于",
@@ -272,7 +272,7 @@ const translations = {
     nav_gallery: "图库",
     nav_contact: "联系我们",
     
-    hero_title: "欢迎来到 Sabaideal",
+    hero_title: "欢迎来到 Aura Capital Asset",
     hero_subtitle: "在清迈安全、直接从业主手中发现优质房产。",
     hero_btn_view: "查看精选房源",
     hero_btn_contact: "联系我们",
@@ -291,7 +291,7 @@ const translations = {
     stat_loc_desc: "直通 Central Festival 购物中心的私人走道",
     
     price_label: "售价",
-    price_amount: "฿240 万泰铢",
+    price_amount: "฿230 万泰铢",
     
     value_main_title: "为什么选择 dcondo Ping？",
     value_main_subtitle: "无论您是在寻找完美的家园还是高收益的资产，此房产都能满足您的需求。",
@@ -396,7 +396,7 @@ const translations = {
     
     contact_btn_send: "发送信息",
     
-    footer_copy: "&copy; 2024 Sabaideal.com. 优质私人房地产挂牌服务。"
+    footer_copy: "&copy; 2024 auracapitalasset.com. 优质私人房地产挂牌服务。"
   },
   lo: {
     nav_about: "ກ່ຽວກັບ",
@@ -405,7 +405,7 @@ const translations = {
     nav_gallery: "ຮູບພາບ",
     nav_contact: "ຕິດຕໍ່ພວກເຮົາ",
     
-    hero_title: "ຍິນດີຕ້ອນຮັບສູ່ Sabaideal",
+    hero_title: "ຍິນດີຕ້ອນຮັບສູ່ Aura Capital Asset",
     hero_subtitle: "ຄົ້ນພົບອະສັງຫາລິມະຊັບລະດັບພຣີມຽມຢ່າງປອດໄພ ແລະ ໂດຍກົງຈາກເຈົ້າຂອງໃນຊຽງໃໝ່.",
     hero_btn_view: "ເບິ່ງລາຍການຊັບສິນແນະນຳ",
     hero_btn_contact: "ຕິດຕໍ່ພວກເຮົາ",
@@ -424,7 +424,7 @@ const translations = {
     stat_loc_desc: "ທາງຍ່າງສ່ວນຕົວຫາເຊັນທຣັນເຟສຕິວໍ",
     
     price_label: "ລາຄາຂາຍ",
-    price_amount: "฿2.4 ລ້ານບາດ",
+    price_amount: "฿2.3 ລ້ານບາດ",
     
     value_main_title: "ເປັນຫຍັງຕ້ອງເລືອກ dcondo Ping?",
     value_main_subtitle: "ບໍ່ວ່າທ່ານຈະກໍາລັງຊອກຫາບ້ານທີ່ສົມບູນແບບຫຼືຊັບສິນທີ່ໃຫ້ຜົນຕອບແທນສູງ, ບ່ອນນີ້ຕອບໂຈດໄດ້.",
@@ -529,6 +529,272 @@ const translations = {
     
     contact_btn_send: "ສົ່ງຂໍ້ຄວາມ",
     
-    footer_copy: "&copy; 2024 Sabaideal.com. ຊັບສິນອະສັງຫາລິມະຊັບສ່ວນຕົວລະດັບພຣີມຽມ."
+    footer_copy: "&copy; 2024 auracapitalasset.com. ຊັບສິນອະສັງຫາລິມะຊັບສ່ວນຕົວລະດັບພຣີມຽມ."
+  },
+  ja: {
+    nav_about: "概要",
+    nav_features: "施設・設備",
+    nav_location: "場所",
+    nav_gallery: "ギャラリー",
+    nav_contact: "お問い合わせ",
+    
+    hero_title: "Aura Capital Assetへようこそ",
+    hero_subtitle: "チェンマイのプレミアム物件を、仲介手数料なしでオーナーから直接、安全に。",
+    hero_btn_view: "おすすめ物件を見る",
+    hero_btn_contact: "お問い合わせ",
+    
+    featured_title: "おすすめ物件：dcondo Ping",
+    featured_subtitle: "モダンな暮らし。チェンマイの発展とピン川の魅力を融合。",
+    
+    about_title: "ピン川からインスパイアされて",
+    about_desc: "2018年に有名デベロッパーSansiriによって開発されたdcondo Pingは、8階建の4棟、計687戸で構成されています。静かなファーハム地区に位置し、自然に囲まれた平穏な都市生活を提供します。広大な共用エリアはピン川の魅力から着想を得ています。数分でセントラルフェスティバル・チェンマイに直結する専用のプライベート・ウォークウェイがあり、国際空港までわずか7kmという比類ない利便性をお楽しみいただけます。",
+    
+    stat_room_title: "部屋のタイプ",
+    stat_room_desc: "スタジオ(30)、1ベッド(37)、2ベッド(60) sq.m.",
+    stat_scale_title: "プロジェクト規模",
+    stat_scale_desc: "4棟、8階建、687戸",
+    stat_loc_title: "立地のハイライト",
+    stat_loc_desc: "セントラルフェスティバルへの専用通路",
+    
+    price_label: "販売価格",
+    price_amount: "230万バーツ",
+    
+    value_main_title: "dcondo Pingが選ばれる理由",
+    value_main_subtitle: "理想の我が家をお探しの方にも、高利回りの資産をお探しの方にも、ご満足いただけます。",
+    
+    value_live_title: "居住に最適",
+    value_live_1_str: "静かなリトリート：",
+    value_live_1_desc: "都会の喧騒から離れた、穏やかなリゾートスタイルの環境です。",
+    value_live_2_str: "日常の利便性：",
+    value_live_2_desc: "ショッピングや食事に便利なセントラルフェスティバルへの直接専用通路があります。",
+    value_live_3_str: "プレミアムな設備：",
+    value_live_3_desc: "広大なプール、モダンなジム、美しく整備された庭園をお楽しみください。",
+    
+    value_inv_title: "投資に最適",
+    value_inv_1_str: "高利回り：",
+    value_inv_1_desc: "<strong>月額15,000バーツ</strong>（目標粗利回り7.5%）からという実績ある賃貸レートで、高い利回りを生み出します。",
+    value_inv_2_str: "圧倒的な需要：",
+    value_inv_2_desc: "セントラルフェスティバルに近いことで、地元の方と外国人の両方から常に高い需要があります。",
+    value_inv_3_str: "資産価値の向上：",
+    value_inv_3_desc: "チェンマイで最も急速に発展している高級住宅地の中心に位置しています。",
+    
+    feat_main_title: "限定アメニティ",
+    feat_main_subtitle: "あなたの日常生活のあらゆる側面を向上させるように設計されています。",
+    
+    feat_pool_title: "巨大なリゾートプール",
+    feat_pool_desc: "清潔さと広さで居住者から高く評価されている、広々とした輝く共用プールでリラックスしてください。",
+    feat_gym_title: "フィットネスセンター",
+    feat_gym_desc: "緑豊かなリゾートスタイルの庭園を見渡す最新設備のジム。毎日の健康管理に最適です。",
+    feat_walk_title: "プライベートウォークウェイ",
+    feat_walk_desc: "コンドミニアムからセントラルフェスティバル・チェンマイに直結する専用の遊歩道です。",
+    feat_peace_title: "静かな環境",
+    feat_peace_desc: "活気ある旧市街まで車でわずか10分でありながら、静かなファーハム地区に位置し、穏やかな隠れ家を提供します。",
+    feat_park_title: "駐車場",
+    feat_park_desc: "居住者とゲストのための十分な駐車スペースをご用意しています。",
+    feat_sec_title: "24時間セキュリティ",
+    feat_sec_desc: "24時間体制のセキュリティとCCTVで完全に安心していただけます。",
+    
+    loc_main_title: "物件の場所",
+    loc_main_subtitle: "チェンマイの最高の場所につながる理想的な立地。",
+    loc_condo_name: "dcondo Ping by Sansiri",
+    loc_condo_addr: "チェンマイ県ムアンチェンマイ郡ファーハム 50000",
+    loc_condo_desc: "居住者専用の通路がありセントラルフェスティバルに非常に近く、ピン川沿いの静かな生活を提供します。",
+    loc_btn_dir: "ルート案内",
+    
+    loc_nearby_title: "近くの人気スポット",
+    
+    loc_card1_title: "セントラルフェスティバル・チェンマイ",
+    loc_card1_desc: "一流のショッピング、食事、エンターテイメント。",
+    loc_card1_dist: "200m（専用通路）",
+    loc_card2_title: "ニマンヘミン通り",
+    loc_card2_desc: "トレンディなカフェ、ブティック、ナイトライフ。",
+    loc_card2_dist: "車で約10分",
+    loc_card3_title: "チェンマイ旧市街",
+    loc_card3_desc: "歴史ある寺院、サンデーナイトマーケット、文化の中心。",
+    loc_card3_dist: "車で約10分",
+    loc_card4_title: "MAYA ライフスタイル ショッピング センター",
+    loc_card4_desc: "映画館、レストラン、ルーフトップバーを備えた高級モール。",
+    loc_card4_dist: "車で約10分",
+    loc_card5_title: "チェンマイ大学（CMU）",
+    loc_card5_desc: "緑豊かなキャンパスを持つタイ北部のトップ大学。",
+    loc_card5_dist: "車で約12分",
+    loc_card6_title: "ターペー門",
+    loc_card6_desc: "象徴的な歴史的ランドマーク、旧市街への入り口。",
+    loc_card6_dist: "車で約10分",
+    loc_card7_title: "バンコク病院チェンマイ",
+    loc_card7_desc: "プレミアムなヘルスケアおよび医療サービス。",
+    loc_card7_dist: "1.5 km",
+    loc_card8_title: "チェンマイ国際空港",
+    loc_card8_desc: "国内線および国際線。",
+    loc_card8_dist: "7.5 km",
+    
+    gal_main_title: "プロパティ・ギャラリー",
+    gal_main_subtitle: "将来の住まいを詳しくご覧ください。",
+    gal_flt_all: "すべて",
+    gal_flt_bld: "外観・建物",
+    gal_flt_liv: "リビング",
+    gal_flt_bed: "ベッドルーム",
+    gal_flt_kit: "キッチン",
+    gal_flt_toi: "トイレ・バス",
+    gal_flt_lnd: "ランドリー",
+    gal_flt_fac: "施設",
+    
+    contact_main_title: "お問い合わせ",
+    contact_main_subtitle: "この投資を優先的に検討されたいですか、それともプライベートな内見をご希望ですか？仲介手数料なしの最良の取引のために、オーナーに直接お問い合わせください。",
+    
+    contact_col_loc: "住所",
+    contact_col_loc_desc: "dcondo Ping by Sansiri<br>チェンマイ県ムアンチェンマイ郡ファーハム 50000",
+    contact_col_phone: "電話",
+    contact_col_line: "LINE公式",
+    
+    contact_form_title: "お問い合わせ送信",
+    contact_lbl_fname: "名",
+    contact_lbl_lname: "姓",
+    contact_lbl_email: "メールアドレス",
+    contact_lbl_contact: "電話番号 / LINE ID",
+    contact_lbl_msg: "メッセージ",
+    
+    contact_plc_fname: "太郎",
+    contact_plc_lname: "山田",
+    contact_plc_email: "taro@example.com",
+    contact_plc_contact: "+66 ... または LINE ID",
+    contact_plc_msg: "内見の予約に興味があります...",
+    
+    contact_btn_send: "メッセージを送信",
+    
+    footer_copy: "&copy; 2024 auracapitalasset.com. プレミアムなプライベート不動産情報."
+  },
+  ko: {
+    nav_about: "소개",
+    nav_features: "시설",
+    nav_location: "위치",
+    nav_gallery: "갤러리",
+    nav_contact: "문의하기",
+    
+    hero_title: "Aura Capital Asset에 오신 것을 환영합니다",
+    hero_subtitle: "치앙마이의 프리미엄 부동산을 중개 수수료 없이 집주인에게 직접 안전하게 만나보세요.",
+    hero_btn_view: "추천 매물 보기",
+    hero_btn_contact: "문의하기",
+    
+    featured_title: "추천 매물: dcondo Ping",
+    featured_subtitle: "현대적인 라이프스타일. 치앙마이의 성장과 핑 강의 매력이 어우러집니다.",
+    
+    about_title: "핑 강에서 영감을 받다",
+    about_desc: "유명 개발사 산시리(Sansiri)가 2018년에 개발한 dcondo Ping은 4개의 8층 건물에 걸쳐 687세대로 구성되어 있습니다. 평화로운 파함(Fa Ham) 지역에 위치하여 자연으로 둘러싸인 조용한 도시 생활을 제공합니다. 핑 강의 매력에서 영감을 받은 넓은 공용 공간을 갖추고 있습니다. 전용 통로를 통해 센트럴 페스티벌 치앙마이(Central Festival Chiang Mai)까지 단 몇 분 만에 도달할 수 있으며, 국제공항은 7km 거리에 불과한 탁월한 편리함을 누려보세요.",
+    
+    stat_room_title: "객실 타입",
+    stat_room_desc: "스튜디오(30), 1베드(37), 2베드(60) sq.m.",
+    stat_scale_title: "단지 규모",
+    stat_scale_desc: "4개동, 8층, 687세대",
+    stat_loc_title: "입지 특징",
+    stat_loc_desc: "센트럴 페스티벌 전용 통로 연결",
+    
+    price_label: "판매 가격",
+    price_amount: "฿230만 바트",
+    
+    value_main_title: "왜 dcondo Ping인가요?",
+    value_main_subtitle: "완벽한 보금자리를 원하시거나 고수익 자산을 원하시거나, 이 숙소는 그에 부합합니다.",
+    
+    value_live_title: "실거주에 완벽한",
+    value_live_1_str: "평화로운 휴식:",
+    value_live_1_desc: "이 조용하고 리조트 같은 환경에서 도시의 소음을 피해 휴식을 취하세요.",
+    value_live_2_str: "일상의 편리함:",
+    value_live_2_desc: "모든 쇼핑 및 다이닝 요구를 충족할 수 있는 센트럴 페스티벌로 연결된 프라이빗 통로입니다.",
+    value_live_3_str: "프리미엄 시설:",
+    value_live_3_desc: "거대한 수영장, 현대적인 체육관, 아름답게 조경된 정원을 즐겨보세요.",
+    
+    value_inv_title: "투자를 위한 최적의 선택",
+    value_inv_1_str: "높은 임대 수익률:",
+    value_inv_1_desc: "<strong>월 ฿15,000</strong>부터 시작하는 검증된 임대료로 견고한 수익을 창출합니다. (목표 총수익률 7.5%)",
+    value_inv_2_str: "비교불가한 수요:",
+    value_inv_2_desc: "센트럴 페스티벌이 가까워 현지인 및 외국인 모두에게서 지속적으로 높은 수요가 발생합니다.",
+    value_inv_3_str: "자본 가치 상승:",
+    value_inv_3_desc: "치앙마이에서 가장 빠르게 발전하는 프리미엄 주거 중심지에 위치합니다.",
+    
+    feat_main_title: "전용 편의 시설",
+    feat_main_subtitle: "당신의 일상 생활의 모든 측면을 향상시키도록 설계되었습니다.",
+    
+    feat_pool_title: "거대한 리조트 풀",
+    feat_pool_desc: "거주자들로부터 청결함과 크기로 높은 평가를 받는 반짝이는 대형 공용 수영장에서 휴식을 취하세요.",
+    feat_gym_title: "피트니스 센터",
+    feat_gym_desc: "아름다운 리조트풍 정원을 내려다보는 현대식 헬스장이 건강한 일상을 위해 완벽하게 갖춰져 있습니다.",
+    feat_walk_title: "프라이빗 통로",
+    feat_walk_desc: "콘도미니엄과 센트럴 페스티벌 치앙마이를 직접 연결하는 전용 산책로.",
+    feat_peace_title: "평화로운 환경",
+    feat_peace_desc: "조용한 파함(Fa Ham) 지역에 자리잡고 있어 활기찬 구시가지(Old City)까지 차로 단 10분 거리에 있으면서도 평화로운 휴식을 제공합니다.",
+    feat_park_title: "주차 공간",
+    feat_park_desc: "입주자 및 방문객을 위한 충분한 주차 공간이 마련되어 있습니다.",
+    feat_sec_title: "연중무휴 24시간 보안 시스템",
+    feat_sec_desc: "24시간 보안 및 CCTV로 완벽한 안심을 제공합니다.",
+    
+    loc_main_title: "숙소 위치",
+    loc_main_subtitle: "치앙마이 최고의 장소와 연결되는 이상적인 위치에 자리잡고 있습니다.",
+    loc_condo_name: "dcondo Ping by Sansiri",
+    loc_condo_addr: "치앙마이 주 므앙 치앙마이 군 파함 50000",
+    loc_condo_desc: "입주민 전용 통로로 센트럴 페스티벌에 매우 인접하며, 핑 강변의 평온한 생활을 제공합니다.",
+    loc_btn_dir: "길 찾기",
+    
+    loc_nearby_title: "인근 인기 위치",
+    
+    loc_card1_title: "센트럴 페스티벌 치앙마이",
+    loc_card1_desc: "쇼핑, 다이닝, 엔터테인먼트의 중심지.",
+    loc_card1_dist: "200m (전용 통로)",
+    loc_card2_title: "님만해민 로드",
+    loc_card2_desc: "트렌디한 카페, 부티크, 그리고 나이트라이프.",
+    loc_card2_dist: "차로 약 10분",
+    loc_card3_title: "치앙마이 올드 시티",
+    loc_card3_desc: "역사적인 사원, 선데이 나이트 마켓, 문화의 중심.",
+    loc_card3_dist: "차로 약 10분",
+    loc_card4_title: "마야 라이프스타일 쇼핑 센터",
+    loc_card4_desc: "영화관, 레스토랑, 루프탑 바를 갖춘 프리미엄 라이프스타일 몰.",
+    loc_card4_dist: "차로 약 10분",
+    loc_card5_title: "치앙마이 대학교(CMU)",
+    loc_card5_desc: "푸르른 캠퍼스를 자랑하는 태국 북부 최고의 명문대.",
+    loc_card5_dist: "차로 약 12분",
+    loc_card6_title: "타페 게이트",
+    loc_card6_desc: "치앙마이를 대표하는 역사적 랜드마크와 구시가지의 관문.",
+    loc_card6_dist: "차로 약 10분",
+    loc_card7_title: "방콕 병원 치앙마이",
+    loc_card7_desc: "프리미엄 헬스케어 및 의료 서비스.",
+    loc_card7_dist: "1.5 km",
+    loc_card8_title: "치앙마이 국제 공항",
+    loc_card8_desc: "국내선 및 국제선 항공편 운항.",
+    loc_card8_dist: "7.5 km",
+    
+    gal_main_title: "숙소 갤러리",
+    gal_main_subtitle: "여러분의 미래 공간을 자세히 살펴보세요.",
+    gal_flt_all: "전체",
+    gal_flt_bld: "건물",
+    gal_flt_liv: "거실",
+    gal_flt_bed: "침실",
+    gal_flt_kit: "주방",
+    gal_flt_toi: "화장실",
+    gal_flt_lnd: "다용도실",
+    gal_flt_fac: "부대시설",
+    
+    contact_main_title: "문의하기",
+    contact_main_subtitle: "이 투자에 우선순위를 두시거나 개인 내방을 일정을 잡고 싶으신가요? 중개 수수료 없이 최상의 거래를 원하시면 소유자에게 직접 문의하세요.",
+    
+    contact_col_loc: "위치",
+    contact_col_loc_desc: "dcondo Ping by Sansiri<br>치앙마이 파함 50000",
+    contact_col_phone: "전화번호",
+    contact_col_line: "LINE 공식 채널",
+    
+    contact_form_title: "상담 신청",
+    contact_lbl_fname: "이름",
+    contact_lbl_lname: "성",
+    contact_lbl_email: "이메일 주소",
+    contact_lbl_contact: "전화번호 / LINE ID",
+    contact_lbl_msg: "메시지",
+    
+    contact_plc_fname: "길동",
+    contact_plc_lname: "홍",
+    contact_plc_email: "gildong@example.com",
+    contact_plc_contact: "+66 ... 또는 LINE ID",
+    contact_plc_msg: "매물 투어 예약에 관심이 있습니다...",
+    
+    contact_btn_send: "메시지 보내기",
+    
+    footer_copy: "&copy; 2024 auracapitalasset.com. 프리미엄 스페셜 부동산 매물."
   }
 };

@@ -1,7 +1,7 @@
 {
   "name": "property-selling-website",
   "version": "1.0.0",
-  "description": "Private property selling website for sabaideal.com",
+  "description": "Private property selling website for auracapitalasset.com",
   "scripts": {
     "dev": "npx serve .",
     "dev:live": "npx live-server ."
@@ -11,6 +11,6 @@
     "fsbo",
     "condo"
   ],
-  "author": "Sabaideal",
+  "author": "Aura Capital Asset",
   "license": "ISC"
 }

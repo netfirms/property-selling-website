@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { src: "LINE_ALBUM_คอนโด_260224_30.jpg", category: "livingroom" }
   ];
 
-  const basePath = "asset/condo1/";
+  const basePath = "asset/properties/condo/dcondo-ping/";
   let currentImageIndex = 0;
   let filteredImages = [...images];
 
