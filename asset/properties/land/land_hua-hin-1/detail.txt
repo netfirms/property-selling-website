@@ -1,0 +1,5 @@
+location: https://maps.app.goo.gl/mSH6LHVKdLPLRUg4A
+document: Chanote
+area: 6 rai
+price: 20,000,000 THB
+good for: resort, housing estate, house village, warehouse, factory

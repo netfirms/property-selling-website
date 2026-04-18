@@ -81,9 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
       item.className = "gallery-item scroll-reveal active";
       item.style.animationDelay = `${(index % 3) * 0.1}s`;
 
-      const imgUrl = encodeURI(`${basePath}${imgObj.src}`);
+      const propertyType = typeof propertyCategory !== 'undefined' ? propertyCategory : 'Property';
       item.innerHTML = `
-                <img src="${imgUrl}" alt="Condominium Gallery Image ${index + 1}" loading="lazy">
+                <img src="${imgUrl}" alt="${propertyType} Gallery Image ${index + 1}" loading="lazy">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
@@ -264,4 +264,33 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  /* -----------------------------------------------------------
+       Sticky CTA Mobile Logic
+    ----------------------------------------------------------- */
+  const stickyCta = document.getElementById("sticky-cta");
+  if (stickyCta) {
+    const handleScroll = () => {
+      // Show after scrolling past hero (approx 400px)
+      if (window.scrollY > 400) {
+        stickyCta.classList.add("visible");
+      } else {
+        stickyCta.classList.remove("visible");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+  }
+
+  /* -----------------------------------------------------------
+       Video Autoplay Force
+    ----------------------------------------------------------- */
+  const droneVideo = document.querySelector(".drone-video");
+  if (droneVideo) {
+    droneVideo.play().catch(() => {
+      console.log("Autoplay prevented. Video will play once user interacts.");
+    });
+  }
 });
+
+

@@ -1,3 +1,5 @@
+const propertyCategory = "Condominium";
+
 const propertyContent = {
   "en": {
     "featured_title": "Featured Property: dcondo Ping",
