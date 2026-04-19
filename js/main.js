@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const propertyType = typeof propertyCategory !== 'undefined' ? propertyCategory : 'Property';
       item.innerHTML = `
-                <img src="${imgUrl}" alt="${propertyType} Gallery Image ${index + 1}" loading="lazy">
+                <img src="${encodeURI(basePath + imgObj.src)}" alt="${propertyType} Gallery Image ${index + 1}" loading="lazy">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
