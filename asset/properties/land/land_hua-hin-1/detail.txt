@@ -2,4 +2,24 @@ location: https://maps.app.goo.gl/mSH6LHVKdLPLRUg4A
 document: Chanote
 area: 6 rai
 price: 20,000,000 THB
-good for: resort, housing estate, house village, warehouse, factory
+good opportunity for: resort, housing estate, wellness center, eldery care center, retirement village, house village, warehouse, factory
+utilities: electricity, water, concrete road
+neighbour: house village, pineapple farm, private house, empty land, poolvilla village
+selling contact: +66909731705 (K. Tum Owner)
+email: [m.taweechai@gmail.com]
+distance from Huahin city center: 11 km
+distance from beach: 12 km
+distance from Hua Hin Airport: 18 km
+distance from Hua Hin Railway Station: 11.5 km
+distance from Hua Hin Bus Station: 18 km
+distance from Hua Hin Hospital: 16 km
+distance from Hua Hin Market Village: 10.5 km
+distance from Hua Hin Bluport: 9.5 km
+distance from Hua Hin Grand Market: 10.5 km
+distance from Hua Hin Night Market: 11.5 km
+distance from Hua Hin Cicada Market: 8.5 km
+distance from Hua Hin Tamarind Market: 8.5 km
+distance from Hua Hin Chat Chai Market: 11.5 km
+distance from Hua Hin Hua Hin Safari: 4 km
+distance from Hua Hin Hua Hin Zoo: 4 km
+distance from Hua Hin Hua Hin Water Park: 13 km
