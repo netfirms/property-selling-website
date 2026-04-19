@@ -1,6 +1,6 @@
 {
   "name": "property-selling-website",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Private property selling website for auracapitalasset.com",
   "scripts": {
     "dev": "npx serve .",
