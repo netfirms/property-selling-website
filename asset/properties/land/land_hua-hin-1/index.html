@@ -135,17 +135,8 @@
         height: 100%;
         object-fit: cover;
       }
-      .video-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.4);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+      /* Direct Owner Badge */
+
       /* Direct Owner Badge */
       .owner-badge {
         position: absolute;
@@ -544,13 +535,20 @@
         </video>
 
         <div class="video-overlay">
+          <button class="video-play-btn" aria-label="Play Drone Video">
+            <i class="fas fa-play"></i>
+          </button>
           <div class="container text-center scroll-reveal">
             <h3 class="section-title text-white" data-i18n="video_section_title">Virtual Drone Tour</h3>
             <p class="section-subtitle" style="color: rgba(255,255,255,0.8); margin: 0 auto;" data-i18n="video_section_subtitle">
               Experience the vast scale and potential of this 6-Rai land from above.
             </p>
+            <div style="margin-top: 20px;">
+                <span class="btn btn-outline text-white" style="border-color: white; pointer-events: none;" data-i18n="video_play_btn">Watch Full Video Tour</span>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -652,10 +650,10 @@
         
         <h3 class="section-title text-center" style="margin-top: 80px;" data-i18n="loc_nearby_title">Nearby Key Locations</h3>
         <div class="location-grid">
-          <!-- Location 1 -->
+          <!-- Location 1: Beach -->
           <div class="location-card scroll-reveal">
             <div class="image-wrapper">
-                <img src="nearby/nearby_1.webp" alt="Hua Hin Beach seaside attractions near the property" class="location-img">
+                <img src="nearby/beach.png" alt="Hua Hin Beach - Famous white sand beach with horseback riding" class="location-img">
             </div>
             <div class="location-details">
               <h4 data-i18n="loc_card1_title">Hua Hin Beach</h4>
@@ -664,27 +662,87 @@
             </div>
           </div>
           
-          <!-- Location 2 -->
+          <!-- Location 2: City Center -->
           <div class="location-card scroll-reveal delay-1">
              <div class="image-wrapper">
-                <img src="nearby/nearby_2.webp" alt="FN Outlet Hua Hin shopping destination nearby" class="location-img">
-            </div>
-            <div class="location-details">
-              <h4 data-i18n="loc_card8_title">FN Outlet Hua Hin</h4>
-              <p data-i18n="loc_card8_desc">Major shopping and rest stop on the main road.</p>
-              <span class="distance" data-i18n="loc_card8_dist">~5 Mins Drive</span>
-            </div>
-          </div>
-
-          <!-- Location 3 -->
-          <div class="location-card scroll-reveal delay-2">
-            <div class="image-wrapper">
-                <img src="nearby/nearby_3.webp" alt="Hua Hin City Center and night market access" class="location-img">
+                <img src="nearby/night_market.png" alt="Hua Hin Night Market - vibrant local food and shopping" class="location-img">
             </div>
             <div class="location-details">
               <h4 data-i18n="loc_card2_title">Hua Hin City Center</h4>
               <p data-i18n="loc_card2_desc">Shopping malls, night markets, and dining hubs.</p>
-              <span class="distance" data-i18n="loc_card2_dist">~10 Mins Drive</span>
+              <span class="distance" data-i18n="loc_card2_dist">~12 Mins Drive</span>
+            </div>
+          </div>
+
+          <!-- Location 3: FN Outlet (Closest) -->
+          <div class="location-card scroll-reveal delay-2">
+            <div class="image-wrapper">
+                <img src="nearby/fn_outlet.png" alt="FN Outlet Hua Hin - Premium shopping and rest stop" class="location-img">
+            </div>
+            <div class="location-details">
+              <h4 data-i18n="loc_card8_title">FN Outlet Hua Hin</h4>
+              <p data-i18n="loc_card8_desc">A strategic landmark on the main artery connecting to Bangkok.</p>
+              <span class="distance" data-i18n="loc_card8_dist">~5 Mins Drive</span>
+            </div>
+          </div>
+
+          <!-- Location 4: Golf -->
+          <div class="location-card scroll-reveal">
+            <div class="image-wrapper">
+                <img src="nearby/golf.png" alt="Banyan Golf Club - World-class golf course" class="location-img">
+            </div>
+            <div class="location-details">
+              <h4 data-i18n="loc_card3_title">Recreation & Leisure</h4>
+              <p data-i18n="loc_card3_desc">Surrounded by world-class golf courses and family-oriented attractions.</p>
+              <span class="distance" data-i18n="loc_card3_dist">~10 Mins Drive</span>
+            </div>
+          </div>
+
+          <!-- Location 5: Bluport -->
+          <div class="location-card scroll-reveal delay-1">
+            <div class="image-wrapper">
+                <img src="nearby/bluport.png" alt="Bluport Hua Hin Resort Mall - Luxury shopping" class="location-img">
+            </div>
+            <div class="location-details">
+              <h4 data-i18n="loc_card4_title">Lifestyle Retail</h4>
+              <p data-i18n="loc_card4_desc">Easy access to premium shopping malls and international dining.</p>
+              <span class="distance" data-i18n="loc_card4_dist">~15 Mins Drive</span>
+            </div>
+          </div>
+
+          <!-- Location 6: Vana Nava -->
+          <div class="location-card scroll-reveal delay-2">
+            <div class="image-wrapper">
+                <img src="nearby/vana_nava.png" alt="Vana Nava Water Jungle - Asia's leading water park" class="location-img">
+            </div>
+            <div class="location-details">
+              <h4 data-i18n="loc_card6_title">Family Entertainment</h4>
+              <p data-i18n="loc_card6_desc">Home to Asia's leading water jungle and outdoor activities.</p>
+              <span class="distance" data-i18n="loc_card6_dist">~20 Mins Drive</span>
+            </div>
+          </div>
+
+          <!-- Location 7: Hospital -->
+          <div class="location-card scroll-reveal">
+            <div class="image-wrapper">
+                <img src="nearby/hospital.png" alt="Bangkok Hospital Hua Hin - International medical center" class="location-img">
+            </div>
+            <div class="location-details">
+              <h4 data-i18n="loc_card7_title">Medical Excellence</h4>
+              <p data-i18n="loc_card7_desc">Minutes away from top-tier international healthcare facilities.</p>
+              <span class="distance" data-i18n="loc_card7_dist">~20 Mins Drive</span>
+            </div>
+          </div>
+
+          <!-- Location 8: Airport -->
+          <div class="location-card scroll-reveal delay-1">
+            <div class="image-wrapper">
+                <img src="nearby/airport.png" alt="Hua Hin Airport - Convenient transport access" class="location-img">
+            </div>
+            <div class="location-details">
+              <h4 data-i18n="loc_card5_title">Transport Access</h4>
+              <p data-i18n="loc_card5_desc">Near Hua Hin Airport and regional transit corridors.</p>
+              <span class="distance" data-i18n="loc_card5_dist">~25 Mins Drive</span>
             </div>
           </div>
         </div>
@@ -717,12 +775,16 @@
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox">
       <span class="close-lightbox">&times;</span>
-      <img class="lightbox-content" id="lightbox-img" />
+      <div class="lightbox-content-wrapper">
+        <img class="lightbox-content" id="lightbox-img" />
+        <video class="lightbox-video" id="lightbox-video" controls playsinline></video>
+      </div>
       <div class="lightbox-nav">
         <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
         <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
+
 
     <!-- Contact Section -->
     <section class="contact section-padding" id="contact" style="background-color: var(--secondary-color); color: #fff;">

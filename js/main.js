@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const galleryContainer = document.getElementById("gallery-container");
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxVideo = document.getElementById("lightbox-video");
   const closeLightbox = document.querySelector(".close-lightbox");
   const prevBtn = document.getElementById("prev-btn");
   const nextBtn = document.getElementById("next-btn");
@@ -125,42 +126,89 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* Lightbox Logic */
-  function openLightbox(index) {
-    currentImageIndex = index;
-    updateLightboxImage();
+  function openLightbox(index, type = 'image', src = null) {
+    if (src) {
+        // Direct source (like for video tour)
+        updateLightboxContent(type, src);
+        prevBtn.style.display = "none";
+        nextBtn.style.display = "none";
+    } else {
+        currentImageIndex = index;
+        updateLightboxContent('image');
+        prevBtn.style.display = filteredImages.length > 1 ? "block" : "none";
+        nextBtn.style.display = filteredImages.length > 1 ? "block" : "none";
+    }
+    
     lightbox.style.display = "block";
     document.body.style.overflow = "hidden"; // Prevent scrolling behind lightbox
     
     // Firebase Analytics Event
-    if (window.logFirebaseEvent && filteredImages[currentImageIndex]) {
-      window.logFirebaseEvent("view_item", {
-        content_type: "gallery_image",
-        item_category: filteredImages[currentImageIndex].category,
-        item_id: filteredImages[currentImageIndex].src
-      });
+    if (window.logFirebaseEvent) {
+      if (src) {
+        window.logFirebaseEvent("view_item", {
+          content_type: "video_tour",
+          item_id: src
+        });
+      } else if (filteredImages[currentImageIndex]) {
+        window.logFirebaseEvent("view_item", {
+          content_type: "gallery_image",
+          item_category: filteredImages[currentImageIndex].category,
+          item_id: filteredImages[currentImageIndex].src
+        });
+      }
     }
   }
 
   function closeLightboxModal() {
     lightbox.style.display = "none";
     document.body.style.overflow = "auto";
+    
+    // Pause video if it exists
+    if (lightboxVideo) {
+      lightboxVideo.pause();
+      lightboxVideo.src = ""; // Clear src to stop loading
+    }
   }
 
-  function updateLightboxImage() {
-    if (filteredImages[currentImageIndex]) {
-      lightboxImg.src = encodeURI(`${basePath}${filteredImages[currentImageIndex].src}`);
+  function updateLightboxContent(type, src = null) {
+    // Hide both initially
+    if (lightboxImg) {
+        lightboxImg.classList.remove("active");
+        lightboxImg.style.display = "none";
+    }
+    if (lightboxVideo) {
+        lightboxVideo.classList.remove("active");
+        lightboxVideo.style.display = "none";
+        lightboxVideo.pause();
+    }
+
+    if (type === 'image') {
+      const imageSrc = src || (filteredImages[currentImageIndex] ? `${basePath}${filteredImages[currentImageIndex].src}` : null);
+      if (imageSrc && lightboxImg) {
+        lightboxImg.src = encodeURI(imageSrc);
+        lightboxImg.classList.add("active");
+        lightboxImg.style.display = "block";
+      }
+    } else if (type === 'video') {
+      if (src && lightboxVideo) {
+        lightboxVideo.src = encodeURI(src);
+        lightboxVideo.classList.add("active");
+        lightboxVideo.style.display = "block";
+        lightboxVideo.play().catch(e => console.log("Video autoplay failed:", e));
+      }
     }
   }
 
   function showNextImage() {
     currentImageIndex = (currentImageIndex + 1) % filteredImages.length;
-    updateLightboxImage();
+    updateLightboxContent('image');
   }
 
   function showPrevImage() {
     currentImageIndex = (currentImageIndex - 1 + filteredImages.length) % filteredImages.length;
-    updateLightboxImage();
+    updateLightboxContent('image');
   }
+
 
   // Event Listeners for Lightbox
   if (closeLightbox)
@@ -283,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* -----------------------------------------------------------
-       Video Autoplay Force
+       Video Autoplay Force & Play Button
     ----------------------------------------------------------- */
   const droneVideo = document.querySelector(".drone-video");
   if (droneVideo) {
@@ -291,6 +339,17 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("Autoplay prevented. Video will play once user interacts.");
     });
   }
+
+  const videoPlayBtn = document.querySelector(".video-play-btn");
+  if (videoPlayBtn) {
+    videoPlayBtn.addEventListener("click", () => {
+        const videoSrc = droneVideo ? droneVideo.querySelector("source").src : null;
+        if (videoSrc) {
+            openLightbox(0, 'video', videoSrc);
+        }
+    });
+  }
+
 });
 
 
