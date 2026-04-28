@@ -102,6 +102,154 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../../../../css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --brand-primary: #c5a059;
+            --brand-dark: #1e293b;
+            --ui-bg: rgba(255, 255, 255, 0.9);
+        }
+        
+        #map-perspective-wrapper {
+            perspective: 1800px;
+            height: 600px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #map-container {
+            width: 100%;
+            height: 100%;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-origin: center bottom;
+        }
+
+        /* Professional Isometric Perspective */
+        .isometric-mode #map-container {
+            transform: rotateX(45deg) rotateZ(-10deg) scale(1.15) translateY(-5%);
+        }
+
+        .isometric-mode .leaflet-marker-icon {
+            transform: rotateZ(10deg) rotateX(-45deg) translateY(-25px) !important;
+            transition: transform 0.3s ease;
+        }
+
+        #map { width: 100%; height: 100%; }
+
+        /* Modern Glass UI */
+        .ui-overlay {
+            position: absolute;
+            top: 32px;
+            left: 32px;
+            z-index: 500;
+            pointer-events: none;
+        }
+
+        .exec-card {
+            background: var(--ui-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 28px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            pointer-events: auto;
+            width: 320px;
+        }
+
+        .controls-map {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            gap: 12px;
+            padding: 6px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            border-radius: 99px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .exec-btn {
+            background: transparent;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 99px;
+            font-weight: 500;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            pointer-events: auto;
+            border: 1px solid transparent;
+        }
+
+        .exec-btn:hover { background: rgba(255, 255, 255, 0.1); }
+        .exec-btn.active { 
+            background: white; 
+            color: var(--brand-dark);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Marker Styles */
+        .marker-pin {
+            width: 32px;
+            height: 32px;
+            border-radius: 50% 50% 50% 0;
+            background: var(--brand-primary);
+            position: absolute;
+            transform: rotate(-45deg);
+            left: 50%;
+            top: 50%;
+            margin: -16px 0 0 -16px;
+            border: 2px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .marker-pin::after {
+            content: '';
+            width: 14px;
+            height: 14px;
+            margin: 7px 0 0 7px;
+            background: white;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .marker-label {
+            background: var(--brand-dark);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: none;
+        }
+
+        /* Route Animation */
+        .path-animation {
+            stroke-dasharray: 8;
+            animation: dash 30s linear infinite;
+        }
+
+        @keyframes dash {
+            from { stroke-dashoffset: 500; }
+            to { stroke-dashoffset: 0; }
+        }
+        
+        /* Reset conflicting styles for map section */
+        #map-perspective-wrapper * {
+            box-sizing: border-box;
+        }
+    </style>
+
     
     <style>
       /* Hero Slide Overrides */
@@ -140,7 +288,7 @@
       /* Direct Owner Badge */
       .owner-badge {
         position: absolute;
-        top: 25px;
+        top: 150px;
         right: 25px;
         background: #c5a059;
         color: #fff;
@@ -256,6 +404,20 @@
       }
 
 
+      @media (min-width: 769px) and (max-width: 1100px) {
+        .nav-links { gap: 10px; }
+        .nav-links a { font-size: 0.85rem; }
+        .logo { font-size: 1.4rem; }
+      }
+      
+      #lang-select {
+        color: var(--text-light);
+        background: rgba(255,255,255,0.1) !important;
+      }
+      .navbar.scrolled #lang-select {
+        color: var(--text-dark) !important;
+        background: transparent !important;
+      }
     </style>
 
     <!-- Firebase Analytics -->
@@ -326,8 +488,8 @@
         <div class="slide slide-4"></div>
       </div>
       <div class="hero-content">
-        <h2 class="animate-up" data-i18n="hero_title">Welcome to Aura Capital Asset</h2>
-        <p class="animate-up delay-1" data-i18n="hero_subtitle">
+        <h2 class="animate-up" data-i18n="land_hero_title">Welcome to Aura Capital Asset</h2>
+        <p class="animate-up delay-1" data-i18n="land_hero_subtitle">
           Strategic 6-Rai Investment Opportunity in Hua Hin's High-Growth Zone.
         </p>
         <div class="hero-buttons animate-up delay-2">
@@ -343,20 +505,20 @@
     <!-- Quick Spec Bar -->
     <div class="spec-bar scroll-reveal">
       <div class="spec-item">
-        <span class="spec-label" data-i18n="stat_room_title">Total Area</span>
-        <span class="spec-val" data-i18n="stat_room_desc">6 Rai (9,600 sq.m.)</span>
+        <span class="spec-label" data-i18n="land_stat_room_title">Total Area</span>
+        <span class="spec-val" data-i18n="land_stat_room_desc">6 Rai (9,600 sq.m.)</span>
       </div>
       <div class="spec-item">
-        <span class="spec-label" data-i18n="stat_scale_title">Legal Status</span>
-        <span class="spec-val" data-i18n="stat_scale_desc">Chanote (Red Garuda)</span>
+        <span class="spec-label" data-i18n="land_stat_scale_title">Legal Status</span>
+        <span class="spec-val" data-i18n="land_stat_scale_desc">Chanote (Red Garuda)</span>
       </div>
       <div class="spec-item">
-        <span class="spec-label" data-i18n="stat_width_title">Road Frontage</span>
-        <span class="spec-val" data-i18n="stat_width_desc">Wide Public Access</span>
+        <span class="spec-label" data-i18n="land_stat_width_title">Road Frontage</span>
+        <span class="spec-val" data-i18n="land_stat_width_desc">Wide Public Access</span>
       </div>
       <div class="spec-item">
         <span class="spec-label" data-i18n="price_label">Selling Price</span>
-        <span class="spec-val" data-i18n="price_amount">฿20,000,000</span>
+        <span class="spec-val" data-i18n="land_price_amount">฿20,000,000</span>
       </div>
     </div>
 
@@ -374,30 +536,30 @@
     <section class="about section-padding" id="about">
       <div class="container container-grid">
         <div class="about-text scroll-reveal">
-          <h3 class="section-title" data-i18n="about_title">Infinite Potential in Hua Hin</h3>
-          <p data-i18n="about_desc">
+          <h3 class="section-title" data-i18n="land_about_title">Infinite Potential in Hua Hin</h3>
+          <p data-i18n="land_about_desc">
             This expansive 6-Rai (9,600 sqm) parcel of land represents a premier development opportunity in the rapidly evolving Hua Hin corridor. Characterized by flat topography and immediate concrete road accessibility, the site is optimized for diverse high-value projects. The property is surrounded by a peaceful neighborhood including private houses, pool villa villages, pineapple farms, and housing estates. Acquire directly from the owner for a streamlined, agency-free transaction.
           </p>
           <div class="key-stats">
             <div class="stat">
               <i class="fas fa-vector-square"></i>
-              <h4 data-i18n="stat_room_title">Total Area</h4>
-              <p data-i18n="stat_room_desc">6 Rai (9,600 sq.m.)</p>
+              <h4 data-i18n="land_stat_room_title">Total Area</h4>
+              <p data-i18n="land_stat_room_desc">6 Rai (9,600 sq.m.)</p>
             </div>
             <div class="stat">
               <i class="fas fa-file-contract"></i>
-              <h4 data-i18n="stat_scale_title">Legal Status</h4>
-              <p data-i18n="stat_scale_desc">Chanote (Red Garuda)</p>
+              <h4 data-i18n="land_stat_scale_title">Legal Status</h4>
+              <p data-i18n="land_stat_scale_desc">Chanote (Red Garuda)</p>
             </div>
             <div class="stat">
               <i class="fas fa-chart-area"></i>
-              <h4 data-i18n="stat_loc_title">Zoning</h4>
-              <p data-i18n="stat_loc_desc">Multi-Purpose Development</p>
+              <h4 data-i18n="land_stat_loc_title">Zoning</h4>
+              <p data-i18n="land_stat_loc_desc">Multi-Purpose Development</p>
             </div>
             <div class="stat">
               <i class="fas fa-road"></i>
-              <h4 data-i18n="stat_width_title">Road Frontage</h4>
-              <p data-i18n="stat_width_desc">Wide Public Access</p>
+              <h4 data-i18n="land_stat_width_title">Road Frontage</h4>
+              <p data-i18n="land_stat_width_desc">Wide Public Access</p>
             </div>
           </div>
 
@@ -411,7 +573,7 @@
             />
             <div class="floating-price">
               <span class="label" data-i18n="price_label">Selling Price</span>
-              <span class="amount" data-i18n="price_amount">฿20,000,000 THB</span>
+              <span class="amount" data-i18n="land_price_amount">฿20,000,000 THB</span>
             </div>
           </div>
         </div>
@@ -422,8 +584,8 @@
     <section class="value-prop section-padding bg-secondary" id="value-prop">
       <div class="container">
         <div class="text-center scroll-reveal">
-          <h3 class="section-title text-white" data-i18n="value_main_title">Investment Highlights</h3>
-          <p class="section-subtitle text-white-mute" data-i18n="value_main_subtitle">
+          <h3 class="section-title text-white" data-i18n="land_value_main_title">Investment Highlights</h3>
+          <p class="section-subtitle text-white-mute" data-i18n="land_value_main_subtitle">
             A rare opportunity to acquire a large plot in one of Thailand's most popular coastal destinations.
           </p>
         </div>
@@ -434,19 +596,19 @@
             <div class="icon-wrapper">
               <i class="fas fa-map-marked-alt"></i>
             </div>
-            <h4 data-i18n="value_live_title">Strategic Assets</h4>
+            <h4 data-i18n="land_value_live_title">Strategic Assets</h4>
             <ul>
               <li>
                 <i class="fas fa-check"></i>
-                <span><strong data-i18n="value_live_1_str">Strategic Location:</strong> <span data-i18n="value_live_1_desc">Situated in a quiet yet accessible area of Hua Hin.</span></span>
+                <span><strong data-i18n="land_value_live_1_str">Strategic Location:</strong> <span data-i18n="land_value_live_1_desc">Situated in a quiet yet accessible area of Hua Hin.</span></span>
               </li>
               <li>
                 <i class="fas fa-check"></i>
-                <span><strong data-i18n="value_live_2_str">Full Ownership:</strong> <span data-i18n="value_live_2_desc">Comes with a clear Chanote title deed.</span></span>
+                <span><strong data-i18n="land_value_live_2_str">Full Ownership:</strong> <span data-i18n="land_value_live_2_desc">Comes with a clear Chanote title deed.</span></span>
               </li>
               <li>
                 <i class="fas fa-check"></i>
-                <span><strong data-i18n="value_live_3_str">Flat Terrain:</strong> <span data-i18n="value_live_3_desc">Reduces site preparation costs significantly.</span></span>
+                <span><strong data-i18n="land_value_live_3_str">Flat Terrain:</strong> <span data-i18n="land_value_live_3_desc">Reduces site preparation costs significantly.</span></span>
               </li>
             </ul>
           </div>
@@ -456,19 +618,19 @@
             <div class="icon-wrapper">
               <i class="fas fa-chart-line"></i>
             </div>
-            <h4 data-i18n="value_inv_title">Growth Potential</h4>
+            <h4 data-i18n="land_value_inv_title">Growth Potential</h4>
             <ul>
               <li>
                 <i class="fas fa-check"></i>
-                <span><strong data-i18n="value_inv_1_str">High Appreciation:</strong> <span data-i18n="value_inv_1_desc">Prices are steadily increasing due to infrastructure growth.</span></span>
+                <span><strong data-i18n="land_value_inv_1_str">High Appreciation:</strong> <span data-i18n="land_value_inv_1_desc">Prices are steadily increasing due to infrastructure growth.</span></span>
               </li>
               <li>
                 <i class="fas fa-check"></i>
-                <span><strong data-i18n="value_inv_2_str">Versatile Use:</strong> <span data-i18n="value_inv_2_desc">Zoned for resorts, private estates, or commercial use.</span></span>
+                <span><strong data-i18n="land_value_inv_2_str">Versatile Use:</strong> <span data-i18n="land_value_inv_2_desc">Zoned for resorts, private estates, or commercial use.</span></span>
               </li>
               <li>
                 <i class="fas fa-check"></i>
-                <span><strong data-i18n="value_inv_3_str">Direct Transaction:</strong> <span data-i18n="value_inv_3_desc">Deal directly with the owner for efficiency.</span></span>
+                <span><strong data-i18n="land_value_inv_3_str">Direct Transaction:</strong> <span data-i18n="land_value_inv_3_desc">Deal directly with the owner for efficiency.</span></span>
               </li>
             </ul>
           </div>
@@ -480,8 +642,8 @@
     <section class="potential section-padding bg-light" id="potential">
       <div class="container">
         <div class="text-center scroll-reveal">
-          <h3 class="section-title" data-i18n="potential_title">Strategic Development Potential</h3>
-          <p class="section-subtitle" data-i18n="potential_subtitle">
+          <h3 class="section-title" data-i18n="land_potential_title">Strategic Development Potential</h3>
+          <p class="section-subtitle" data-i18n="land_potential_subtitle">
             This 6-Rai parcel is perfectly suited for a variety of high-value developments.
           </p>
         </div>
@@ -492,8 +654,8 @@
             <div class="icon-box">
               <i class="fas fa-hotel"></i>
             </div>
-            <h4 data-i18n="pot_resort_title">Resort & Wellness</h4>
-            <p data-i18n="pot_resort_desc">Perfect for a boutique resort, wellness retreat, elderly care center, or retirement village.</p>
+            <h4 data-i18n="land_pot_resort_title">Resort & Wellness</h4>
+            <p data-i18n="land_pot_resort_desc">Perfect for a boutique resort, wellness retreat, elderly care center, or retirement village.</p>
           </div>
 
           <!-- Item 2: Housing -->
@@ -501,8 +663,8 @@
             <div class="icon-box">
               <i class="fas fa-home"></i>
             </div>
-            <h4 data-i18n="pot_housing_title">Housing Estate</h4>
-            <p data-i18n="pot_housing_desc">Flat terrain suitable for luxury villas or a private housing community.</p>
+            <h4 data-i18n="land_pot_housing_title">Housing Estate</h4>
+            <p data-i18n="land_pot_housing_desc">Flat terrain suitable for luxury villas or a private housing community.</p>
           </div>
 
           <!-- Item 3: Warehouse -->
@@ -510,8 +672,8 @@
             <div class="icon-box">
               <i class="fas fa-warehouse"></i>
             </div>
-            <h4 data-i18n="pot_warehouse_title">Warehouse & Logistics</h4>
-            <p data-i18n="pot_warehouse_desc">Excellent accessibility for storage facilities or strategic distribution centers.</p>
+            <h4 data-i18n="land_pot_warehouse_title">Warehouse & Logistics</h4>
+            <p data-i18n="land_pot_warehouse_desc">Excellent accessibility for storage facilities or strategic distribution centers.</p>
           </div>
 
           <!-- Item 4: Factory -->
@@ -519,8 +681,8 @@
             <div class="icon-box">
               <i class="fas fa-industry"></i>
             </div>
-            <h4 data-i18n="pot_factory_title">Light Industrial</h4>
-            <p data-i18n="pot_factory_desc">Zoned for light manufacturing or factory use with utility readiness.</p>
+            <h4 data-i18n="land_pot_factory_title">Light Industrial</h4>
+            <p data-i18n="land_pot_factory_desc">Zoned for light manufacturing or factory use with utility readiness.</p>
           </div>
         </div>
       </div>
@@ -539,8 +701,8 @@
             <i class="fas fa-play"></i>
           </button>
           <div class="container text-center scroll-reveal">
-            <h3 class="section-title text-white" data-i18n="video_section_title">Virtual Drone Tour</h3>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.8); margin: 0 auto;" data-i18n="video_section_subtitle">
+            <h3 class="section-title text-white" data-i18n="land_video_section_title">Virtual Drone Tour</h3>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8); margin: 0 auto;" data-i18n="land_video_section_subtitle">
               Experience the vast scale and potential of this 6-Rai land from above.
             </p>
             <div style="margin-top: 20px;">
@@ -556,8 +718,8 @@
     <section class="features section-padding bg-light" id="features">
       <div class="container">
         <div class="text-center scroll-reveal">
-          <h3 class="section-title" data-i18n="feat_main_title">Property Features</h3>
-          <p class="section-subtitle" data-i18n="feat_main_subtitle">
+          <h3 class="section-title" data-i18n="land_feat_main_title">Property Features</h3>
+          <p class="section-subtitle" data-i18n="land_feat_main_subtitle">
             Ready for immediate development and long-term success.
           </p>
         </div>
@@ -567,8 +729,8 @@
             <div class="feature-img-wrapper">
                <img src="land/f1.webp" alt="Expansive 6-Rai flat land terrain in Hua Hin ready for construction" class="feature-img">
             </div>
-            <h4 data-i18n="feat_pool_title">Vast Open Space</h4>
-            <p data-i18n="feat_pool_desc">
+            <h4 data-i18n="land_feat_pool_title">Vast Open Space</h4>
+            <p data-i18n="land_feat_pool_desc">
               6 Rai of clear, expansive land offering maximum design flexibility for any project.
             </p>
           </div>
@@ -576,8 +738,8 @@
             <div class="feature-img-wrapper">
                 <img src="land/f2.webp" alt="Public access road bordering the property in Hua Hin" class="feature-img">
             </div>
-            <h4 data-i18n="feat_gym_title">Concrete Road Access</h4>
-            <p data-i18n="feat_gym_desc">
+            <h4 data-i18n="land_feat_gym_title">Concrete Road Access</h4>
+            <p data-i18n="land_feat_gym_desc">
               Bordered by a public concrete road, ensuring smooth logistics for construction and future operations.
             </p>
           </div>
@@ -585,8 +747,8 @@
             <div class="feature-img-wrapper">
                 <img src="land/f3.webp" alt="Peaceful and quiet surroundings of the land plot in Hua Hin" class="feature-img">
             </div>
-            <h4 data-i18n="feat_walk_title">Quiet Environment</h4>
-            <p data-i18n="feat_walk_desc">
+            <h4 data-i18n="land_feat_walk_title">Quiet Environment</h4>
+            <p data-i18n="land_feat_walk_desc">
               Surrounded by a peaceful atmosphere, ideal for creating a private resort or upscale community.
             </p>
           </div>
@@ -594,8 +756,8 @@
             <div class="feature-img-wrapper">
                 <img src="land/f4.webp" alt="Available electricity and water utility infrastructure near the land" class="feature-img">
             </div>
-            <h4 data-i18n="feat_peace_title">Utilities Ready</h4>
-            <p data-i18n="feat_peace_desc">
+            <h4 data-i18n="land_feat_peace_title">Utilities Ready</h4>
+            <p data-i18n="land_feat_peace_desc">
               Proximity to main utility lines simplifies the connection of electricity and water.
             </p>
           </div>
@@ -603,8 +765,8 @@
             <div class="feature-img-wrapper">
                 <img src="land/f5.webp" alt="Clear property boundary lines according to Chanote title deed" class="feature-img">
             </div>
-            <h4 data-i18n="feat_park_title">Clear Boundaries</h4>
-            <p data-i18n="feat_park_desc">
+            <h4 data-i18n="land_feat_park_title">Clear Boundaries</h4>
+            <p data-i18n="land_feat_park_desc">
               Well-defined property lines confirmed by recent surveys for absolute accuracy.
             </p>
           </div>
@@ -612,8 +774,8 @@
             <div class="feature-img-wrapper">
                 <img src="land/f6.webp" alt="Flat land ready for immediate resort or housing development" class="feature-img">
             </div>
-            <h4 data-i18n="feat_sec_title">Development Ready</h4>
-            <p data-i18n="feat_sec_desc">
+            <h4 data-i18n="land_feat_sec_title">Development Ready</h4>
+            <p data-i18n="land_feat_sec_desc">
               No major obstructions, ready for immediate groundwork and foundation.
             </p>
           </div>
@@ -638,9 +800,9 @@
           <div class="property-location-info">
             <img src="land/dji_fly_20260415_095936_0016_1776239662408_photo_beautify.webp" alt="Satellite location overview of the 6-Rai land plot in Hua Hin" class="property-location-img">
             <div class="property-location-details">
-              <h4 data-i18n="loc_condo_name">6-Rai Land Hua Hin</h4>
-              <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="loc_condo_addr">Hua Hin, Prachuap Khiri Khan 77110</span></p>
-              <p data-i18n="loc_condo_desc">Strategically located land offering a perfect blend of tranquility and accessibility.</p>
+              <h4 data-i18n="land_loc_condo_name">6-Rai Land Hua Hin</h4>
+              <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="land_loc_condo_addr">Hua Hin, Prachuap Khiri Khan 77110</span></p>
+              <p data-i18n="land_loc_condo_desc">Strategically located land offering a perfect blend of tranquility and accessibility.</p>
               <div>
                 <a href="https://maps.app.goo.gl/mSH6LHVKdLPLRUg4A" target="_blank" class="btn btn-outline" style="margin-top: 10px;" data-i18n="loc_btn_dir">Get Directions</a>
               </div>
@@ -656,9 +818,9 @@
                 <img src="nearby/beach.png" alt="Hua Hin Beach - Famous white sand beach with horseback riding" class="location-img">
             </div>
             <div class="location-details">
-              <h4 data-i18n="loc_card1_title">Hua Hin Beach</h4>
-              <p data-i18n="loc_card1_desc">Famous white sand beach and seaside attractions.</p>
-              <span class="distance" data-i18n="loc_card1_dist">~15 Mins Drive</span>
+              <h4 data-i18n="land_loc_card1_title">Hua Hin Beach</h4>
+              <p data-i18n="land_loc_card1_desc">Famous white sand beach and seaside attractions.</p>
+              <span class="distance" data-i18n="land_loc_card1_dist">~15 Mins Drive</span>
             </div>
           </div>
           
@@ -668,9 +830,9 @@
                 <img src="nearby/night_market.png" alt="Hua Hin Night Market - vibrant local food and shopping" class="location-img">
             </div>
             <div class="location-details">
-              <h4 data-i18n="loc_card2_title">Hua Hin City Center</h4>
-              <p data-i18n="loc_card2_desc">Shopping malls, night markets, and dining hubs.</p>
-              <span class="distance" data-i18n="loc_card2_dist">~12 Mins Drive</span>
+              <h4 data-i18n="land_loc_card2_title">Hua Hin City Center</h4>
+              <p data-i18n="land_loc_card2_desc">Shopping malls, night markets, and dining hubs.</p>
+              <span class="distance" data-i18n="land_loc_card2_dist">~12 Mins Drive</span>
             </div>
           </div>
 
@@ -680,9 +842,9 @@
                 <img src="nearby/fn_outlet.png" alt="FN Outlet Hua Hin - Premium shopping and rest stop" class="location-img">
             </div>
             <div class="location-details">
-              <h4 data-i18n="loc_card8_title">FN Outlet Hua Hin</h4>
-              <p data-i18n="loc_card8_desc">A strategic landmark on the main artery connecting to Bangkok.</p>
-              <span class="distance" data-i18n="loc_card8_dist">~5 Mins Drive</span>
+              <h4 data-i18n="land_loc_card8_title">FN Outlet Hua Hin</h4>
+              <p data-i18n="land_loc_card8_desc">A strategic landmark on the main artery connecting to Bangkok.</p>
+              <span class="distance" data-i18n="land_loc_card8_dist">~5 Mins Drive</span>
             </div>
           </div>
 
@@ -692,9 +854,9 @@
                 <img src="nearby/golf.png" alt="Banyan Golf Club - World-class golf course" class="location-img">
             </div>
             <div class="location-details">
-              <h4 data-i18n="loc_card3_title">Recreation & Leisure</h4>
-              <p data-i18n="loc_card3_desc">Surrounded by world-class golf courses and family-oriented attractions.</p>
-              <span class="distance" data-i18n="loc_card3_dist">~10 Mins Drive</span>
+              <h4 data-i18n="land_loc_card3_title">Recreation & Leisure</h4>
+              <p data-i18n="land_loc_card3_desc">Surrounded by world-class golf courses and family-oriented attractions.</p>
+              <span class="distance" data-i18n="land_loc_card3_dist">~10 Mins Drive</span>
             </div>
           </div>
 
@@ -704,9 +866,9 @@
                 <img src="nearby/bluport.png" alt="Bluport Hua Hin Resort Mall - Luxury shopping" class="location-img">
             </div>
             <div class="location-details">
-              <h4 data-i18n="loc_card4_title">Lifestyle Retail</h4>
-              <p data-i18n="loc_card4_desc">Easy access to premium shopping malls and international dining.</p>
-              <span class="distance" data-i18n="loc_card4_dist">~15 Mins Drive</span>
+              <h4 data-i18n="land_loc_card4_title">Lifestyle Retail</h4>
+              <p data-i18n="land_loc_card4_desc">Easy access to premium shopping malls and international dining.</p>
+              <span class="distance" data-i18n="land_loc_card4_dist">~15 Mins Drive</span>
             </div>
           </div>
 
@@ -716,9 +878,9 @@
                 <img src="nearby/vana_nava.png" alt="Vana Nava Water Jungle - Asia's leading water park" class="location-img">
             </div>
             <div class="location-details">
-              <h4 data-i18n="loc_card6_title">Family Entertainment</h4>
-              <p data-i18n="loc_card6_desc">Home to Asia's leading water jungle and outdoor activities.</p>
-              <span class="distance" data-i18n="loc_card6_dist">~20 Mins Drive</span>
+              <h4 data-i18n="land_loc_card6_title">Family Entertainment</h4>
+              <p data-i18n="land_loc_card6_desc">Home to Asia's leading water jungle and outdoor activities.</p>
+              <span class="distance" data-i18n="land_loc_card6_dist">~20 Mins Drive</span>
             </div>
           </div>
 
@@ -728,9 +890,9 @@
                 <img src="nearby/hospital.png" alt="Bangkok Hospital Hua Hin - International medical center" class="location-img">
             </div>
             <div class="location-details">
-              <h4 data-i18n="loc_card7_title">Medical Excellence</h4>
-              <p data-i18n="loc_card7_desc">Minutes away from top-tier international healthcare facilities.</p>
-              <span class="distance" data-i18n="loc_card7_dist">~20 Mins Drive</span>
+              <h4 data-i18n="land_loc_card7_title">Medical Excellence</h4>
+              <p data-i18n="land_loc_card7_desc">Minutes away from top-tier international healthcare facilities.</p>
+              <span class="distance" data-i18n="land_loc_card7_dist">~20 Mins Drive</span>
             </div>
           </div>
 
@@ -740,9 +902,9 @@
                 <img src="nearby/airport.png" alt="Hua Hin Airport - Convenient transport access" class="location-img">
             </div>
             <div class="location-details">
-              <h4 data-i18n="loc_card5_title">Transport Access</h4>
-              <p data-i18n="loc_card5_desc">Near Hua Hin Airport and regional transit corridors.</p>
-              <span class="distance" data-i18n="loc_card5_dist">~25 Mins Drive</span>
+              <h4 data-i18n="land_loc_card5_title">Transport Access</h4>
+              <p data-i18n="land_loc_card5_desc">Near Hua Hin Airport and regional transit corridors.</p>
+              <span class="distance" data-i18n="land_loc_card5_dist">~25 Mins Drive</span>
             </div>
           </div>
         </div>
@@ -786,7 +948,76 @@
     </div>
 
 
-    <!-- Contact Section -->
+    <!-- Interactive Map Section -->
+    <section id="interactive-map" class="section-padding" style="padding-bottom: 0;">
+      <div class="container text-center mb-12">
+        <h3 class="section-title" data-i18n="map_section_title">Executive Location Analysis</h3>
+        <p class="section-subtitle" data-i18n="map_section_subtitle">Professional isometric perspective of the asset's connectivity to the urban center.</p>
+      </div>
+      
+      <div id="map-perspective-wrapper">
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
+        
+        <div class="ui-overlay hidden md:block">
+            <div class="exec-card">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="text-left">
+                        <h1 class="text-lg font-bold text-slate-800 tracking-tight">Property Location</h1>
+                        <p class="text-[10px] font-medium text-slate-400">Exclusive Real Estate Data</p>
+                    </div>
+                    <div class="h-8 w-8 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                </div>
+                
+                <div class="space-y-4 text-left">
+                    <div class="flex items-start gap-3">
+                        <div class="w-1 h-8 bg-blue-500 rounded-full shrink-0"></div>
+                        <div>
+                            <p class="text-[9px] font-bold uppercase text-slate-400 tracking-widest">Asset Location</p>
+                            <p class="text-xs font-semibold text-slate-700">6-Rai Prime Plot</p>
+                            <p class="text-[10px] text-slate-500">12.6026° N, 99.8411° E</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="w-1 h-8 bg-slate-300 rounded-full shrink-0"></div>
+                        <div>
+                            <p class="text-[9px] font-bold uppercase text-slate-400 tracking-widest">Connection</p>
+                            <p class="text-xs font-semibold text-slate-700">Hua Hin Civic Center</p>
+                            <p class="text-[10px] text-slate-500">Major Commercial Hub</p>
+                        </div>
+                    </div>
+    
+                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 flex items-center justify-between">
+                        <div>
+                            <p class="text-[9px] font-bold text-slate-400 uppercase">Commute Distance</p>
+                            <p id="distance-val" class="text-xl font-bold text-slate-900 leading-none mt-1">-- KM</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-[9px] font-bold text-blue-600 uppercase">Est. Time</p>
+                            <p id="time-val" class="text-xs font-semibold text-slate-700 mt-1">~15 mins</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="mt-5">
+                    <a href="https://maps.app.goo.gl/mSH6LHVKdLPLRUg4A" target="_blank" class="block w-full bg-slate-900 text-white py-2 rounded-lg text-center font-semibold text-xs hover:bg-slate-800 transition-colors">
+                        Open in Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="controls-map">
+            <button id="toggle-iso" class="exec-btn">Isometric View</button>
+            <button id="recenter" class="exec-btn active">Center Assets</button>
+        </div>
+      </div>
+    </section>
+
     <section class="contact section-padding" id="contact" style="background-color: var(--secondary-color); color: #fff;">
       <div class="container text-center">
         <h3 class="section-title scroll-reveal" style="color: #fff; margin-bottom: 15px; font-size: 2.5rem;" data-i18n="contact_main_title">Get in Touch</h3>
@@ -800,7 +1031,7 @@
               <i class="fas fa-map-marker-alt"></i>
             </div>
             <h4 style="color: #fff; margin-bottom: 10px; font-size: 1.2rem;" data-i18n="contact_col_loc">Location</h4>
-            <p style="color: rgba(255,255,255,0.7); line-height: 1.5; font-size: 1rem; margin: 0;" data-i18n="contact_col_loc_desc">Hua Hin, Prachuap Khiri Khan</p>
+            <p style="color: rgba(255,255,255,0.7); line-height: 1.5; font-size: 1rem; margin: 0;" data-i18n="land_contact_col_loc_desc">Hua Hin, Prachuap Khiri Khan</p>
           </div>
           
           <div class="contact-card scroll-reveal delay-1" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 40px 30px; width: 100%; max-width: 320px;">
@@ -849,6 +1080,97 @@
     <script src="../../../../js/translations.js"></script>
     <script src="content.js"></script>
     <script src="../../../../js/main.js"></script>
+    
+    <!-- Leaflet & Map Script -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const landPos = [12.602612461418113, 99.84116306955187];
+            const cityPos = [12.569014336552524, 99.957438317606];
+    
+            function getDistance(lat1, lon1, lat2, lon2) {
+                const R = 6371;
+                const dLat = (lat2 - lat1) * Math.PI / 180;
+                const dLon = (lon2 - lon1) * Math.PI / 180;
+                const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                          Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon/2) * Math.sin(dLon/2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                return (R * c).toFixed(1);
+            }
+    
+            const dist = getDistance(landPos[0], landPos[1], cityPos[0], cityPos[1]);
+            const distEl = document.getElementById('distance-val');
+            if(distEl) distEl.innerText = `${dist} KM`;
+    
+            // Initialize Map
+            const map = L.map('map', {
+                zoomControl: false,
+                attributionControl: false,
+                scrollWheelZoom: false // Better for scrolling pages
+            }).setView(landPos, 13);
+    
+            // CartoDB Voyager - Clean, Colorful but Professional
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                maxZoom: 19
+            }).addTo(map);
+    
+            // Professional Icons
+            const landIcon = L.divIcon({
+                className: 'custom-pin',
+                html: `<div class="marker-pin"></div>`,
+                iconSize: [32, 32],
+                iconAnchor: [16, 32]
+            });
+    
+            const cityIcon = L.divIcon({
+                className: 'custom-pin-city',
+                html: `<div class="marker-pin" style="background: #64748b;"></div>`,
+                iconSize: [32, 32],
+                iconAnchor: [16, 32]
+            });
+    
+            L.marker(landPos, { icon: landIcon }).addTo(map).bindTooltip("Subject Property", { permanent: true, className: 'marker-label', direction: 'top', offset: [0, -35] });
+            L.marker(cityPos, { icon: cityIcon }).addTo(map).bindTooltip("Hua Hin Center", { permanent: true, className: 'marker-label', direction: 'top', offset: [0, -35] });
+    
+            // Professional Route Path
+            const polyline = L.polyline([landPos, cityPos], {
+                color: '#c5a059',
+                weight: 5,
+                opacity: 0.8,
+                className: 'path-animation'
+            }).addTo(map);
+    
+            const bounds = L.latLngBounds([landPos, cityPos]);
+            map.fitBounds(bounds, { padding: [100, 100] });
+    
+            // Logic
+            const wrapper = document.getElementById('map-perspective-wrapper');
+            const isoBtn = document.getElementById('toggle-iso');
+            const recenterBtn = document.getElementById('recenter');
+    
+            isoBtn.addEventListener('click', () => {
+                wrapper.classList.toggle('isometric-mode');
+                const isActive = wrapper.classList.contains('isometric-mode');
+                isoBtn.innerText = isActive ? 'Standard View' : 'Isometric View';
+                isoBtn.classList.toggle('active', isActive);
+                
+                setTimeout(() => {
+                    map.invalidateSize();
+                    map.fitBounds(bounds, { padding: [100, 100], animate: true });
+                }, 600);
+            });
+    
+            recenterBtn.addEventListener('click', () => {
+                map.fitBounds(bounds, { padding: [100, 100], animate: true });
+                recenterBtn.classList.add('active');
+                setTimeout(() => recenterBtn.classList.remove('active'), 1000);
+            });
+    
+            // Add Scale
+            L.control.scale({ position: 'bottomright', imperial: false }).addTo(map);
+        });
+    </script>
   </body>
+
 
 </html>
