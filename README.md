@@ -1,6 +1,6 @@
-# Aura Capital Asset | dcondo Ping Property Listing
+# Aura Capital Asset | Premium Property Portfolio
 
-A premium, high-performance static website for showcasing and selling luxury condominium units in Chiang Mai, Thailand. Specifically featuring dcondo Ping by Sansiri.
+A high-performance static website for showcasing a curated portfolio of luxury real estate in Thailand. Currently featuring premium investment land in Hua Hin and resort-style condominiums in Chiang Mai.
 
 ## 🌟 Features
 

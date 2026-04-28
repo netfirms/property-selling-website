@@ -249,6 +249,15 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         btn.textContent = "Message Sent Successfully!";
         btn.style.backgroundColor = "#2c3e50";
+        
+        // Firebase Analytics Event
+        if (window.logFirebaseEvent) {
+          window.logFirebaseEvent("generate_lead", {
+            form_id: "inquiry-form",
+            method: "website_form"
+          });
+        }
+        
         form.reset();
 
         setTimeout(() => {
@@ -349,6 +358,36 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
   }
+
+  /* -----------------------------------------------------------
+       Contact Conversion Tracking
+    ----------------------------------------------------------- */
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+
+    const href = link.getAttribute("href") || "";
+    
+    // Phone Call Tracking
+    if (href.startsWith("tel:")) {
+      if (window.logFirebaseEvent) {
+        window.logFirebaseEvent("contact", {
+          method: "phone",
+          phone_number: href.replace("tel:", "")
+        });
+      }
+    }
+    
+    // LINE Contact Tracking
+    if (href.includes("line.me") || link.textContent.toLowerCase().includes("line")) {
+      if (window.logFirebaseEvent) {
+        window.logFirebaseEvent("contact", {
+          method: "line_official",
+          link_url: href
+        });
+      }
+    }
+  });
 
 });
 

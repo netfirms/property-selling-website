@@ -71,6 +71,7 @@ var propertyContent = {
     "gal_flt_bld": "Land Assets",
     "gal_flt_liv": "Mapping",
     "gal_flt_fac": "Connectivity",
+    "gal_flt_dev": "Development",
     "video_section_title": "Aerial Site Insights",
     "video_section_subtitle": "A comprehensive drone perspective of the plot's scale and strategic surroundings.",
     "potential_title": "High-Yield Development Potential",
@@ -83,6 +84,11 @@ var propertyContent = {
     "pot_warehouse_desc": "Leverage road accessibility for smart storage solutions or distribution centers.",
     "pot_factory_title": "Commercial Industrial",
     "pot_factory_desc": "Tailor-made for light manufacturing or tech-ready industrial facilities.",
+    "dev_title": "Project Concept Renderings",
+    "dev_subtitle": "Architectural visualizations of potential high-value projects optimized for this 6-Rai site.",
+    "dev_condo_title": "Luxury Low-Rise Residences",
+    "dev_care_title": "Wellness & Senior Living",
+    "dev_village_title": "Private Pool Villa Estate",
     "contact_col_loc_desc": "6-Rai Strategic Land<br>Hua Hin, Prachuap Khiri Khan"
   },
   "th": {
@@ -157,6 +163,7 @@ var propertyContent = {
     "gal_flt_bld": "ทรัพย์สินที่ดิน",
     "gal_flt_liv": "การแผนที่",
     "gal_flt_fac": "การเชื่อมต่อ",
+    "gal_flt_dev": "โครงการพัฒนา",
     "video_section_title": "ข้อมูลเชิงลึกจากภาพมุมสูง",
     "video_section_subtitle": "สัมผัสศักยภาพและขนาดของที่ดินผ่านมุมมองโดรนที่ครอบคลุมทุกมิติ",
     "potential_title": "ศักยภาพการพัฒนาที่ให้ผลตอบแทนสูง",
@@ -169,6 +176,11 @@ var propertyContent = {
     "pot_warehouse_desc": "ใช้ประโยชน์จากการเข้าถึงถนนเพื่อสร้างโซลูชันคลังสินค้าที่ชาญฉลาดหรือศูนย์กระจายสินค้า",
     "pot_factory_title": "อุตสาหกรรมชิงพาณิชย์",
     "pot_factory_desc": "ออกแบบมาเฉพาะสำหรับการผลิตอุตสาหกรรมเบาหรือสิ่งอำนวยความสะดวกทางเทคโนโลยี",
+    "dev_title": "แนวคิดการออกแบบโครงการ",
+    "dev_subtitle": "ภาพจำลองทางสถาปัตยกรรมของโครงการที่มีศักยภาพสูงซึ่งเหมาะสำหรับพื้นที่ 6 ไร่นี้",
+    "dev_condo_title": "คอนโดมิเนียมหรู Low-Rise",
+    "dev_care_title": "ศูนย์ดูแลสุขภาพและที่พักผู้สูงอายุ",
+    "dev_village_title": "โครงการพูลวิลล่าส่วนตัว",
     "contact_col_loc_desc": "ที่ดินยุทธศาสตร์ 6 ไร่<br>หัวหิน ประจวบคีรีขันธ์"
   },
   "zh": {
@@ -243,6 +255,7 @@ var propertyContent = {
     "gal_flt_bld": "土地资产",
     "gal_flt_liv": "地图规划",
     "gal_flt_fac": "交通连通",
+    "gal_flt_dev": "开发项目",
     "video_section_title": "航拍现场洞察",
     "video_section_subtitle": "从无人机角度全面展示地块规模和战略环境。",
     "potential_title": "高收益开发潜力",
@@ -255,6 +268,11 @@ var propertyContent = {
     "pot_warehouse_desc": "利用道路连通性打造智能存储解决方案或配送中心。",
     "pot_factory_title": "商用工业",
     "pot_factory_desc": "量身定制的轻工业制造或科技型工业设施。",
+    "dev_title": "项目概念渲染图",
+    "dev_subtitle": "针对这块 6 莱土地优化的潜在高价值项目的建筑可视化。",
+    "dev_condo_title": "豪华低层住宅",
+    "dev_care_title": "康养与高端养老中心",
+    "dev_village_title": "私人泳池别墅区",
     "contact_col_loc_desc": "6 莱战略土地<br>华欣，班武里府"
   },
   "ja": {
@@ -329,6 +347,7 @@ var propertyContent = {
     "gal_flt_bld": "土地資産",
     "gal_flt_liv": "マッピング",
     "gal_flt_fac": "接続性",
+    "gal_flt_dev": "開発プロジェクト",
     "video_section_title": "空撮サイト・インサイト",
     "video_section_subtitle": "区画の規模と戦略的周辺環境を上空から包括的に確認できます。",
     "potential_title": "高収益開発の可能性",
@@ -341,6 +360,11 @@ var propertyContent = {
     "pot_warehouse_desc": "道路アクセスを活かしたスマートな保管ソリューションや配送センターに。",
     "pot_factory_title": "商業・工業",
     "pot_factory_desc": "軽工業の製造や最新技術に対応した産業施設など、ニーズに合わせて活用可能。",
+    "dev_title": "プロジェクト・コンセプト案",
+    "dev_subtitle": "この 6 ライの敷地に最適化された、高価値プロジェクトの建築イメージ。",
+    "dev_condo_title": "ラグジュアリー低層レジデンス",
+    "dev_care_title": "ウェルネス＆シニアリビング",
+    "dev_village_title": "プライベート・プールヴィラ・エステート",
     "contact_col_loc_desc": "ホアヒン 6 ライ戦略的土地<br>ホアヒン、プラチュアップキーリーカン"
   },
   "ko": {
@@ -415,6 +439,7 @@ var propertyContent = {
     "gal_flt_bld": "토지 자산",
     "gal_flt_liv": "모형 배치",
     "gal_flt_fac": "연결성",
+    "gal_flt_dev": "개발 프로젝트",
     "video_section_title": "항공 사이트 인사이트",
     "video_section_subtitle": "드론 시점으로 본 부지의 규모와 전략적 주변 환경 정보.",
     "potential_title": "고수익 개발 잠재력",
@@ -427,6 +452,11 @@ var propertyContent = {
     "pot_warehouse_desc": "도로 접근성을 활용한 스마트 보관 솔루션 또는 유통 센터 구축.",
     "pot_factory_title": "상업용 산업",
     "pot_factory_desc": "경공업 제조 또는 기술 기반 산업 시설에 최적화 가능.",
+    "dev_title": "프로젝트 컨셉 렌더링",
+    "dev_subtitle": "이 6라이 부지에 최적화된 고부가가치 프로젝트의 건축 시각화.",
+    "dev_condo_title": "럭셔리 저층 레지던스",
+    "dev_care_title": "웰니스 및 시니어 리빙",
+    "dev_village_title": "프라이빗 풀빌라 단지",
     "contact_col_loc_desc": "후า힌 6라이 전략 토지<br>후า힌, 프라추압키리칸"
   },
   "lo": {
@@ -501,6 +531,7 @@ var propertyContent = {
     "gal_flt_bld": "ຊັບສິນດິນ",
     "gal_flt_liv": "ແຜນທີ່",
     "gal_flt_fac": "ການເຊື່ອມຕໍ່",
+    "gal_flt_dev": "ໂຄງການພັດທະນາ",
     "video_section_title": "ຂໍ້ມູນແບບມຸມສູງ",
     "video_section_subtitle": "ສຳຜັດສັກກະຍະພາບ ແລະ ຂະໜາດຂອງດິນຜ່ານມຸມມອງໂດຣນ.",
     "potential_title": "ສັກກະຍະພາບການພັດທະນາທີ່ໃຫ້ຜົນຕອບແທນສູງ",
@@ -513,6 +544,11 @@ var propertyContent = {
     "pot_warehouse_desc": "ໃຊ້ປະໂຫຍດຈາກການເຂົ້າເຖິງທາງເພື່ອສ້າງສາງສິນຄ້າທີ່ທັນສະໄໝ.",
     "pot_factory_title": "ອຸດສາຫະກຳ",
     "pot_factory_desc": "ອອກແບບມາເປັນພິເສດສຳລັບການຜະລິດອຸດສາຫະກຳເບົາ ຫຼື ສິ່ງອຳນວຍຄວາມສະດວກດ້ານເຕັກໂນໂລຢີ.",
+    "dev_title": "ແນວຄິດການອອກແບບໂຄງການ",
+    "dev_subtitle": "ພາບຈຳລອງທາງສະຖາປັດຕະຍະກຳຂອງໂຄງການທີ່ມີສັກກະຍະພາບສູງທີ່ເໝາະສຳລັບພື້ນທີ່ 6 ໄຣ່ນີ້",
+    "dev_condo_title": "ຄອນໂດມິເນຽມຫຼູ Low-Rise",
+    "dev_care_title": "ສູນດູແລສຸຂະພາບ ແລະ ທີ່ພັກຜູ້ສູງອາຍຸ",
+    "dev_village_title": "ໂຄງການພູລວິນລ່າສ່ວນຕົວ",
     "contact_col_loc_desc": "ດິນຍຸດທະສາດ 6 ໄຣ່<br>ຫົວຫີນ, ປະຈວບຄີຣີຂັນ"
   }
 };
@@ -522,6 +558,7 @@ var propertyBasePath = "";
 var propertyCategory = "Land";
 
 var propertyGallery = [
+    { src: "land/land_area.png", category: "land" },
     { src: "land/dji_fly_20260415_095936_0016_1776239662408_photo_beautify.webp", category: "land" },
     { src: "land/f1.webp", category: "land" },
     { src: "land/f2.webp", category: "land" },
@@ -532,7 +569,9 @@ var propertyGallery = [
     { src: "map/map1.webp", category: "map" },
     { src: "nearby/nearby_1.webp", category: "nearby" },
     { src: "nearby/nearby_2.webp", category: "nearby" },
-    { src: "nearby/nearby_3.webp", category: "nearby" },
     { src: "nearby/nearby_4.webp", category: "nearby" },
-    { src: "nearby/nearby_5.webp", category: "nearby" }
+    { src: "nearby/nearby_5.webp", category: "nearby" },
+    { src: "example_development/luxury_lowrise_condomenium.png", category: "development" },
+    { src: "example_development/luxury_retirement_care.png", category: "development" },
+    { src: "example_development/luxury_village.png", category: "development" }
 ];
